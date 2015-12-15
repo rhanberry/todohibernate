@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>TodoList Update</title>
+<link type="text/css" rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.css" />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript">
+
+
+$(document).ready(function() {
+          $.ajax({
+                 url : '/todo',
+                 method : 'GET'
+             }).then(function(todolists){
+                 for (var i = 0; i < todolists.length; i++) {
+                     var todolist = todolists[i];
+                     var row = '<option value="' + todoList.todoId + '">'
+                             + todolist.tododesc
+                             + ', '
+                             + todolist.todoitem
+                             + '</option>';
+                     $("#todolists").append(row);
+                 }
+             });
+
+          
+          $("#todolists").change(function(){
+              
+              $.ajax({
+                  url : '/todolists/' + $("#todolists").val(),
+                  method : 'GET'     
+              }).then(function(employee) {
+                  $("#todoId").val(todolist.todoId);
+    			  $("#todoitem").val(todolist.todoitem);
+    			  $("#tododesc").val(todolist.tododesc);
+    			  $("#duedate").val(todolist.duedate);
+    			  $("#todouser").val(todolist.todouser);
+    			  $("#complete").val(todolist.complete.toString());
+                  
+                  //window.location.href = "/employee/index";
+              }, function(errors) {
+ 
+              });
+              
+              
+          });
+           
+          
+          $("#submit").click(function() {
+              
+      		var todolist ={};
+			todolist.todoId = $("#todoId").val();
+			todolist.todoitem = $("#todoitem").val();
+			todolist.tododesc = $("#tododesc").val();
+			todolist.duedate = $("#duedate");
+			todolist.todouser = $("#todouser").val();
+			todolist.complete = $("#complete").val();
+			
+              $.ajax({
+                  url : '/todolists/' + employee.employeeId,
+                  method : 'PUT',
+                  data: JSON.stringify(todolist),
+                  contentType: 'application/JSON'
+              }).then(function() {
+                  window.location.href = "/todolist/index";
+              }, function(errors) {
+ 
+              });
+          });
+ });
+
+
+</script>
+</head>
+<body>
+	<h1>Todo List Update</h1>
+	<div class="navbar">
+		
+		  <div>
+               <a href="/employee/index">Todo List Index</a>
+          </div>
+          <div>
+               <a href="/employee/create">Todo List Create</a>
+          </div>
+          <div>
+               <a href="/employee/update">Todo List Update</a>
+          </div>
+          <div>
+               <a href="/employee/delete">Todo List Delete</a>
+          </div>
+	</div>
+
+     <div class="container">
+
+          <div id="errorMsgs" class="error"></div>
+
+          <div>
+               <select id="employees">
+                    <option>Select an Item</option>
+               </select>
+          </div>
+          <div>
+               <div>
+                    <label for="employeeId">EmployeeId</label> <input id="employeeId" type="text" readonly value="" />
+               </div>
+               <div>
+                    <label for="firstname">firstname</label> <input id="firstname" type="text" value="" />
+               </div>
+               <div>
+                    <label for="lastname">lastname</label> <input id="lastname" type="text" value="" />
+               </div>
+               <div>
+                    <label for="age">age</label> <input id="age" type="text" value="" />
+               </div>
+               <div>
+                    <label for="active">Is active?:</label> <select id="active">
+                         <option value="true">True</option>
+                         <option value="false">False</option>
+                    </select>
+               </div>
+               <div>
+
+
+                    <button id="submit" type="button">Submit</button>
+               </div>
+          </div>
+     </div>
+
+</body>
+</html>

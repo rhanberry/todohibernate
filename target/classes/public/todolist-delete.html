@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Employee Delete</title>
+<link type="text/css" rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.css" />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript">
+
+  
+    $(document).ready(function() {
+              $.ajax({
+                     url : '/todolists',
+                     method : 'GET'
+                 }).then(function(todolists){
+                      for (var i = 0; i < todolists.length; i++) {
+                             var todolist = todolists[i];
+                             var row = '<option value="' + todolist.todoId + '">'
+                                     + todolist.todoitem
+                                     + ', '
+                                     + todolist.tododesc
+                                     + '</option>';
+                             $("#todolists").append(row);
+                         }
+                 });
+
+              $("#removeBtn").click(function() {
+                  $.ajax({
+                      url : '/todolists/' + $("#todolists").val(),
+                      method : 'DELETE'     
+                  }).then(function() {
+                      window.location.href = "/todolist/index";
+                  }, function(errors) {
+     
+                  });
+              });
+     });
+</script>
+</head>
+<body>
+     <h1>Todo List Delete</h1>
+     <div class="navbar">
+		
+		  <div>
+               <a href="/todolist/index">Todo List Index</a>
+          </div>
+          <div>
+               <a href="/todolist/create">Todo List Create</a>
+          </div>
+          <div>
+               <a href="/todolist/update">Todo List Update</a>
+          </div>
+          <div>
+               <a href="/todolist/delete">Todo List Delete</a>
+          </div>
+	</div>
+
+     <div class="container">
+          <div id="errorMsgs" class="error"></div>
+
+          <select id="todolists">
+               <option>Select an Item</option>
+          </select>
+          <button id="removeBtn" type="button">Remove</button>
+     </div>
+</body>
+</html>
