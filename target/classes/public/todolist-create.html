@@ -23,7 +23,7 @@
 				$.ajax({
 					url:'/todolists',
 					method: 'POST',
-					data: JSON.stringify(employee),
+					data: JSON.stringify(todolist),
 					contentType: 'application/json'
 				}).then(function(){
 					window.location.href="/todolist/index";

@@ -25,29 +25,29 @@ public class TodoWebService {
 		this.todoService = todoService;
 	}
 	
-	@RequestMapping(value="/todolist", method=RequestMethod.POST)
+	@RequestMapping(value="/todolists", method=RequestMethod.POST)
 	public void addTodoList(@RequestBody TodoList todolist){
 		todoService.add(todolist);
 	} 
 		
 		
-	@RequestMapping(value="/todolist", method = RequestMethod.GET)
+	@RequestMapping(value="/todolists", method = RequestMethod.GET)
 	public List<TodoList> getTodolists(Boolean complete){
 		return todoService.getTodolists(complete);
 	}	
 	
 	
-	@RequestMapping(value="/todolist/{id}", method=RequestMethod.GET)
+	@RequestMapping(value="/todolists/{id}", method=RequestMethod.GET)
 	public TodoList getTodoListByID(@PathVariable Integer id) throws InvalidInputException{ 
 		return todoService.getByTodoId(id);
 	}
 	
-	@RequestMapping(value="/todolist/{id}", method = RequestMethod.PUT)
+	@RequestMapping(value="/todolists/{id}", method = RequestMethod.PUT)
 	public void updateTodoList(@PathVariable Integer id, @RequestBody TodoList todolist){
 		todoService.update(todolist);
 	}
 	
-	@RequestMapping(value="/todolist/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value="/todolists/{id}", method = RequestMethod.DELETE)
 	public void removeTodoList(@PathVariable Integer id){
 		
 		todoService.delete(id);

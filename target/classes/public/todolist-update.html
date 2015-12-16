@@ -31,7 +31,7 @@ $(document).ready(function() {
               $.ajax({
                   url : '/todolists/' + $("#todolists").val(),
                   method : 'GET'
-              }).then(function(employee) {
+              }).then(function(todolist) {
                   $("#todoId").val(todolist.todoId);
     			  $("#todoitem").val(todolist.todoitem);
     			  $("#tododesc").val(todolist.tododesc);
@@ -59,7 +59,7 @@ $(document).ready(function() {
 			todolist.complete = $("#complete").val();
 
               $.ajax({
-                  url : '/todolists/' + employee.employeeId,
+                  url : '/todolists/' + todolist.todoId,
                   method : 'PUT',
                   data: JSON.stringify(todolist),
                   contentType: 'application/JSON'
