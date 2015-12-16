@@ -27,6 +27,7 @@ public class TodoDaoHibernate implements TodoDao {
 	
 	@Override
 	public void add(TodoList todolist) {
+		System.out.println(todolist.getTodoDesc());
 		em.persist(todolist);
 		
 	}

@@ -42,6 +42,7 @@ public class TodoServiceImpl implements TodoService {
 	
 	@Override
 	public void add(TodoList todolist){
+		System.out.println("SERVICEIMPL"+ todolist.getTodoDesc());
 		todoDao.add(todolist);
 	}
 	
