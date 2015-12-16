@@ -32,7 +32,7 @@ public class TodoWebService {
 		
 		
 	@RequestMapping(value="/todolist", method = RequestMethod.GET)
-	public List<TodoList> getTodoLists(Boolean complete){
+	public List<TodoList> getTodolists(Boolean complete){
 		return todoService.getTodolists(complete);
 	}	
 	

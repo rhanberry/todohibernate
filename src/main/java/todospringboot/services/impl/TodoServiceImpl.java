@@ -23,6 +23,9 @@ public class TodoServiceImpl implements TodoService {
 	public List<TodoList> getTodolists(Boolean complete) {
 		List<TodoList> todolists = todoDao.getAllTodoList();
 			if(complete != null){
+				//return todoDao.getAllTodoList().stream().filter(t-> t.isComplete() == complete);
+
+				
 				List<TodoList> activeTodolists = new ArrayList<>();
 				for(TodoList e : todolists){
 					if(e.isComplete().equals(complete)){
@@ -53,6 +56,7 @@ public class TodoServiceImpl implements TodoService {
 		return todoDao.getByTodoId(todoId);
 	}
 	
+	@Override
 	public void delete(Integer todoId){
 		todoDao.delete(todoId);
 	}
