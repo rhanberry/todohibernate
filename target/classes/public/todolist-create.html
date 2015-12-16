@@ -10,7 +10,7 @@
 
 	$(document).ready(function(){
 		$("#submit").click(function(){
-			
+
 			var todolist ={};
 			todolist.todoId = $("#todoId").val();
 			todolist.todoitem = $("#todoitem").val();
@@ -18,23 +18,23 @@
 			todolist.duedate = $("#duedate");
 			todolist.todouser = $("#todouser").val();
 			todolist.complete = $("#complete").val();
-				
-				
+
+
 				$.ajax({
 					url:'/todolists',
 					method: 'POST',
 					data: JSON.stringify(employee),
-					contentType: 'application/json'					
+					contentType: 'application/json'
 				}).then(function(){
 					window.location.href="/todolist/index";
 				},function(errors){
 					$("#errorMsgs").text(errors);
 				});
-	 
+
 		});
-		
-		
-		
+
+
+
 	});
 
 
@@ -44,18 +44,18 @@
 
 	<h1>Todo Item Create</h1>
 	<div class="navbar">
-		
+
 		  <div>
-               <a href="/employee/index">Todo List Index</a>
+               <a href="/todolist/index">Todo List Index</a>
           </div>
           <div>
-               <a href="/employee/create">Todo List Create</a>
+               <a href="/todolist/create">Todo List Create</a>
           </div>
           <div>
-               <a href="/employee/update">Todo List Update</a>
+               <a href="/todolist/update">Todo List Update</a>
           </div>
           <div>
-               <a href="/employee/delete">Todo List Delete</a>
+               <a href="/todolist/delete">Todo List Delete</a>
           </div>
 	</div>
 
@@ -63,24 +63,24 @@
 
 <div class="container">
 
- <label for="todoitem">list item</label> 
+ <label for="todoitem">list item</label>
  <input id="todoitem" type="text" value=""/>
- 
- <label for="tododesc">list description</label> 
+
+ <label for="tododesc">list description</label>
  <input id="tododesc" type="text" value=""/>
- 
- <label for="duedate">due date</label> 
+
+ <label for="duedate">due date</label>
  <input id="duedate" type="text" value=""/>
- 
- <label for="todouser">list user</label> 
+
+ <label for="todouser">list user</label>
  <input id="todouser" type="text" value=""/>
- 
- <label for="complete">Is complete?:</label> 
+
+ <label for="complete">Is complete?:</label>
  <select id="complete">
  	<option value="true">True</option>
  	<option value="false">False</option>
  </select>
- 
+
   <button id="submit" type="button"> Submit </button>
 </div>
 

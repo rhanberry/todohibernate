@@ -17,20 +17,20 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/todolist/index", method = RequestMethod.GET)
-	public String employeeIndex() {
+	public String todoIndex() {
 		return "/todolist-index.html";
 	}
 
 	@RequestMapping(value = "/todolist/create", method = RequestMethod.GET)
-	public String employeeCreate() {
+	public String todoCreate() {
 		return "/todolist-create.html";
 	}
 	@RequestMapping(value = "/todolist/update", method = RequestMethod.GET)
-	public String employeeUpdate() {
+	public String todoUpdate() {
 		return "/todolist-update.html";
 	}
 	@RequestMapping(value = "/todolist/delete", method = RequestMethod.GET)
-	public String employeeDelete() {
+	public String todoDelete() {
 		return "/todolist-delete.html";
 	}
 }

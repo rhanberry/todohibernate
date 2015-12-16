@@ -89,7 +89,7 @@ public class TodoList {
 	/**
 	 * @param isComplete the isComplete to set
 	 */
-	public void setComplete(Boolean isComplete) {
+	public void setIsComplete(Boolean isComplete) {
 		this.isComplete = isComplete;
 	}
 	

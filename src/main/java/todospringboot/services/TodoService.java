@@ -6,7 +6,7 @@ import todospringboot.entities.TodoList;
 
 public interface TodoService {
 
-	List<TodoList> getTodolists(Boolean isComplete);
+	List<TodoList> getTodolists(Boolean complete);
 
 	void add(TodoList todolist);
 

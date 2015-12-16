@@ -1,15 +1,17 @@
 package todospringboot.services.impl;
 
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import todospringboot.daos.TodoDao;
 import todospringboot.entities.TodoList;
 import todospringboot.services.InvalidInputException;
 import todospringboot.services.TodoService;
 
+@Service
 public class TodoServiceImpl implements TodoService {
 	
 	@Autowired
@@ -22,15 +24,18 @@ public class TodoServiceImpl implements TodoService {
 	@Override
 	public List<TodoList> getTodolists(Boolean complete) {
 		List<TodoList> todolists = todoDao.getAllTodoList();
-			if(complete != null){
-				List<TodoList> activeTodolists = new ArrayList<>();
-				for(TodoList e : todolists){
-					if(e.isComplete().equals(complete)){
-						activeTodolists.add(e);
-					}
-				}
-				return activeTodolists;
-			}
+//			if(complete != null){
+//				//return todoDao.getAllTodoList().stream().filter(t-> t.isComplete() == complete);
+//
+//				
+//				List<TodoList> activeTodolists = new ArrayList<>();
+//				for(TodoList e : todolists){
+//					if(e.isComplete().equals(complete)){
+//						activeTodolists.add(e);
+//					}
+//				}
+//				return activeTodolists;
+//			}
 			
 		return todolists;
 	}
@@ -53,6 +58,7 @@ public class TodoServiceImpl implements TodoService {
 		return todoDao.getByTodoId(todoId);
 	}
 	
+	@Override
 	public void delete(Integer todoId){
 		todoDao.delete(todoId);
 	}

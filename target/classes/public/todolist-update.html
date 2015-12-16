@@ -11,7 +11,7 @@
 
 $(document).ready(function() {
           $.ajax({
-                 url : '/todo',
+                 url : '/todolists',
                  method : 'GET'
              }).then(function(todolists){
                  for (var i = 0; i < todolists.length; i++) {
@@ -25,12 +25,12 @@ $(document).ready(function() {
                  }
              });
 
-          
+
           $("#todolists").change(function(){
-              
+
               $.ajax({
                   url : '/todolists/' + $("#todolists").val(),
-                  method : 'GET'     
+                  method : 'GET'
               }).then(function(employee) {
                   $("#todoId").val(todolist.todoId);
     			  $("#todoitem").val(todolist.todoitem);
@@ -38,18 +38,18 @@ $(document).ready(function() {
     			  $("#duedate").val(todolist.duedate);
     			  $("#todouser").val(todolist.todouser);
     			  $("#complete").val(todolist.complete.toString());
-                  
+
                   //window.location.href = "/employee/index";
               }, function(errors) {
- 
+
               });
-              
-              
+
+
           });
-           
-          
+
+
           $("#submit").click(function() {
-              
+
       		var todolist ={};
 			todolist.todoId = $("#todoId").val();
 			todolist.todoitem = $("#todoitem").val();
@@ -57,7 +57,7 @@ $(document).ready(function() {
 			todolist.duedate = $("#duedate");
 			todolist.todouser = $("#todouser").val();
 			todolist.complete = $("#complete").val();
-			
+
               $.ajax({
                   url : '/todolists/' + employee.employeeId,
                   method : 'PUT',
@@ -66,7 +66,7 @@ $(document).ready(function() {
               }).then(function() {
                   window.location.href = "/todolist/index";
               }, function(errors) {
- 
+
               });
           });
  });
@@ -77,18 +77,18 @@ $(document).ready(function() {
 <body>
 	<h1>Todo List Update</h1>
 	<div class="navbar">
-		
+
 		  <div>
-               <a href="/employee/index">Todo List Index</a>
+               <a href="/todolist/index">Todo List Index</a>
           </div>
           <div>
-               <a href="/employee/create">Todo List Create</a>
+               <a href="/todolist/create">Todo List Create</a>
           </div>
           <div>
-               <a href="/employee/update">Todo List Update</a>
+               <a href="/todolist/update">Todo List Update</a>
           </div>
           <div>
-               <a href="/employee/delete">Todo List Delete</a>
+               <a href="/todolist/delete">Todo List Delete</a>
           </div>
 	</div>
 
@@ -97,25 +97,28 @@ $(document).ready(function() {
           <div id="errorMsgs" class="error"></div>
 
           <div>
-               <select id="employees">
+               <select id="todolists">
                     <option>Select an Item</option>
                </select>
           </div>
           <div>
                <div>
-                    <label for="employeeId">EmployeeId</label> <input id="employeeId" type="text" readonly value="" />
+                    <label for="todoId">Todo ID</label> <input id="todoId" type="text" readonly value="" />
                </div>
                <div>
-                    <label for="firstname">firstname</label> <input id="firstname" type="text" value="" />
+                    <label for="todoitem">todoitem</label> <input id="todoitem" type="text" value="" />
                </div>
                <div>
-                    <label for="lastname">lastname</label> <input id="lastname" type="text" value="" />
+                    <label for="tododesc">tododesc</label> <input id="tododesc" type="text" value="" />
                </div>
                <div>
-                    <label for="age">age</label> <input id="age" type="text" value="" />
+                    <label for="duedate">duedate</label> <input id="duedate" type="text" value="" />
                </div>
                <div>
-                    <label for="active">Is active?:</label> <select id="active">
+                    <label for="todouser">user</label> <input id="user" type="text" value="" />
+               </div>
+               <div>
+                    <label for="iscomplete">Is complete?:</label> <select id="complete">
                          <option value="true">True</option>
                          <option value="false">False</option>
                     </select>
