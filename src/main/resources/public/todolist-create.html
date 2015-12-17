@@ -13,7 +13,7 @@
 		$("#submit").click(function() {
 
 			var todolist = {};
-			todolist.todoId = $("#todoId").val();
+			
 			todolist.todoitem = $("#todoitem").val();
 			todolist.tododesc = $("#tododesc").val();
 			todolist.duedate = $("#duedate").val();
@@ -26,8 +26,9 @@
 			$.ajax({
 				url : '/todolists',
 				method : 'POST',
-				contentType : 'application/json',
-				data : JSON.stringify(todolist)
+				data : JSON.stringify(todolist),
+				contentType : 'application/json'
+				
 			}).then(function(e) {
 				console.log(JSON.stringify(e));
 				//window.location.href = "/todolist/index";
@@ -63,13 +64,21 @@
 
 	<div class="container">
 
-		<label for="todoitem">list item</label> <input id="todoitem"
-			type="text" value="" /> <label for="tododesc">list
-			description</label> <input id="tododesc" type="text" value="" /> <label
-			for="duedate">due date</label> <input id="duedate" type="text"
-			value="" /> <label for="todouser">list user</label> <input
-			id="todouser" type="text" value="" /> <label for="complete">Is
-			complete?:</label> <select id="complete">
+		<label for="todoitem">list item</label> 
+		<input id="todoitem" type="text" value="" /> 
+		
+		<label for="tododesc">list description</label> 
+		<input id="tododesc" type="text" value="" /> 
+		
+		<label for="duedate">due date</label> 
+		<input id="duedate" type="text"	value="" /> 
+		
+		<label for="todouser">list user</label> 
+		<input id="todouser" type="text" value="" /> 
+		
+		<label for="complete">Is complete?:</label> 
+		
+		<select id="complete">
 			<option value="true">True</option>
 			<option value="false">False</option>
 		</select>
