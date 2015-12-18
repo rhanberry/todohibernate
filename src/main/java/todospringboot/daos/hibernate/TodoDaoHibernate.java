@@ -40,7 +40,7 @@ public class TodoDaoHibernate implements TodoDao {
 	@Override
 	public List<TodoList> getAllTodoList() {
 		return em.
-				createQuery("SELECT e FROM todolist e", TodoList.class).
+				createQuery("SELECT e FROM TodoList e", TodoList.class).
 				getResultList();
 	}
 

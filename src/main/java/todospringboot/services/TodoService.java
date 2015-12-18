@@ -6,17 +6,16 @@ import todospringboot.entities.TodoList;
 
 public interface TodoService {
 
-	List<TodoList> getTodolists(Boolean complete);
-
+	
 	void add(TodoList todolist);
 
 	void update(TodoList todolist);
-
-	TodoList getByTodoId(Integer todoId) throws InvalidInputException;
-	
-	
 	
 	void delete(Integer todoId);
+
+	List<TodoList> getTodolists(Boolean complete);
+	
+	TodoList getByTodoId(Integer todoId) throws InvalidInputException;
 
 	
 }

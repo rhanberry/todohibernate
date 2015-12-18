@@ -16,10 +16,10 @@ $(document).ready(function() {
              }).then(function(todolists){
                  for (var i = 0; i < todolists.length; i++) {
                      var todolist = todolists[i];
-                     var row = '<option value="' + todoList.todoId + '">'
-                             + todolist.todoitem
+                     var row = '<option value="' + todolist.todoId + '">'
+                             + todolist.todoItem
                              + ', '
-                             + todolist.tododesc
+                             + todolist.todoDesc
                              + '</option>';
                      $("#todolists").append(row);
                  }
@@ -33,10 +33,10 @@ $(document).ready(function() {
                   method : 'GET'
               }).then(function(todolist) {
                   $("#todoId").val(todolist.todoId);
-    			  $("#todoitem").val(todolist.todoitem);
-    			  $("#tododesc").val(todolist.tododesc);
-    			  $("#duedate").val(todolist.duedate);
-    			  $("#todouser").val(todolist.todouser);
+    			  $("#todoitem").val(todolist.todoItem);
+    			  $("#tododesc").val(todolist.todoDesc);
+    			  $("#duedate").val(todolist.dueDate);
+    			  $("#todouser").val(todolist.todoUser);
     			  $("#complete").val(todolist.complete.toString());
 
                   //window.location.href = "/employee/index";
@@ -52,10 +52,10 @@ $(document).ready(function() {
 
       		var todolist ={};
 			todolist.todoId = $("#todoId").val();
-			todolist.todoitem = $("#todoitem").val();
-			todolist.tododesc = $("#tododesc").val();
-			todolist.duedate = $("#duedate");
-			todolist.todouser = $("#todouser").val();
+			todolist.todoItem = $("#todoitem").val();
+			todolist.todoDesc = $("#tododesc").val();
+			todolist.dueDate = $("#duedate").val();
+			todolist.todoUser = $("#todouser").val();
 			todolist.complete = $("#complete").val();
 
               $.ajax({

@@ -13,8 +13,8 @@ $(document).ready(function(){
 		for (var i = 0; i < todolists.length; i++) {
 			var todolist = todolists[i];
 			var row = "<tr><td>" + todolist.todoId + "</td><td>"
-					+ todolist.todoitem + "</td><td>" + todolist.tododesc
-					+ "</td><td>" + todolist.duedate + "</td><td>" + todolist.todouser + "</td><td>"
+					+ todolist.todoItem + "</td><td>" + todolist.todoDesc
+					+ "</td><td>" + todolist.dueDate + "</td><td>" + todolist.todoUser + "</td><td>"
 					+ todolist.complete + "</td></tr>";
 			$("#result").append(row);
 		}

@@ -26,10 +26,10 @@ public class TodoWebService {
 	}
 	
 	@RequestMapping(value="/todolists", method=RequestMethod.POST)
-	public TodoList addTodoList(@RequestBody TodoList todolist){
-		System.out.println("WEBSERVICE"+ todolist.getTodoDesc());
+	public void addTodoList(@RequestBody TodoList todolist){
+		//System.out.println("WEBSERVICE"+ todolist.getTodoDesc());
 		todoService.add(todolist);
-		return todolist;
+		
 	} 
 		
 		
