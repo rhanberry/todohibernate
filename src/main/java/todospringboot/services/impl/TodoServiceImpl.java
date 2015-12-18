@@ -1,6 +1,6 @@
 package todospringboot.services.impl;
 
-import java.util.ArrayList;
+
 //import java.util.ArrayList;
 import java.util.List;
 
@@ -22,21 +22,23 @@ public class TodoServiceImpl implements TodoService {
 		this.todoDao = todoDao;
 	}
 	
+	
 	@Override
 	public List<TodoList> getTodolists(Boolean complete) {
 		List<TodoList> todolists = todoDao.getAllTodoList();
-			if(complete != null){
-				//return todoDao.getAllTodoList().stream().filter(t-> t.isComplete() == complete);
-
-				
-				List<TodoList> activeTodolists = new ArrayList<>();
-				for(TodoList e : todolists){
-					if(e.isComplete() == complete){
-						activeTodolists.add(e);
-					}
-				}
-				return activeTodolists;
-			}
+//			if(complete != null){
+//				
+//				//return (List<TodoList>) todoDao.getAllTodoList().stream().filter(t-> t.isComplete() == complete);
+//
+//				
+//				List<TodoList> activeTodolists = new ArrayList<>();
+//				for(TodoList e : todolists){
+//					if(e.isComplete() == complete){
+//						activeTodolists.add(e);
+//					}
+//				}
+//				return activeTodolists;
+//			}
 			
 		return todolists;
 	}

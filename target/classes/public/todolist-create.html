@@ -18,7 +18,7 @@
 			todolist.todoDesc = $("#tododesc").val();
 			todolist.dueDate = $("#duedate").val();
 			todolist.todoUser = $("#todouser").val();
-			todolist.complete = $("#complete").val();
+			todolist.isComplete = $("#complete").val();
 
 			console.log(todolist);
 			console.log(JSON.stringify(todolist));
@@ -27,7 +27,7 @@
 				url : '/todolists',
 				method : 'POST',
 				data : JSON.stringify(todolist),
-				contentType : 'application/json'
+				contentType : 'application/JSON'
 				
 			}).then(function(e) {
 				console.log(JSON.stringify(e));
@@ -64,16 +64,16 @@
 
 	<div class="container">
 
-		<label for="todoitem">list item</label> 
+		<label for="todoitem">Todo Item</label> 
 		<input id="todoitem" type="text" value="" /> 
 		
-		<label for="tododesc">list description</label> 
+		<label for="tododesc">Item Description</label> 
 		<input id="tododesc" type="text" value="" /> 
 		
-		<label for="duedate">due date</label> 
+		<label for="duedate">Due Date</label> 
 		<input id="duedate" type="text"	value="" /> 
 		
-		<label for="todouser">list user</label> 
+		<label for="todouser">Todo User</label> 
 		<input id="todouser" type="text" value="" /> 
 		
 		<label for="complete">Is complete?:</label> 

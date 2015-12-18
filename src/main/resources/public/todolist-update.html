@@ -20,6 +20,10 @@ $(document).ready(function() {
                              + todolist.todoItem
                              + ', '
                              + todolist.todoDesc
+                             + ', '
+                             + todolist.dueDate
+                             + ', '
+                             + todolist.todoUser
                              + '</option>';
                      $("#todolists").append(row);
                  }
@@ -37,7 +41,7 @@ $(document).ready(function() {
     			  $("#tododesc").val(todolist.todoDesc);
     			  $("#duedate").val(todolist.dueDate);
     			  $("#todouser").val(todolist.todoUser);
-    			  $("#complete").val(todolist.complete.toString());
+    			  $("#complete").val(todolist.isComplete);
 
                   //window.location.href = "/employee/index";
               }, function(errors) {
@@ -56,7 +60,7 @@ $(document).ready(function() {
 			todolist.todoDesc = $("#tododesc").val();
 			todolist.dueDate = $("#duedate").val();
 			todolist.todoUser = $("#todouser").val();
-			todolist.complete = $("#complete").val();
+			todolist.isComplete = $("#complete").val();
 
               $.ajax({
                   url : '/todolists/' + todolist.todoId,
@@ -118,7 +122,7 @@ $(document).ready(function() {
                     <label for="todouser">user</label> <input id="user" type="text" value="" />
                </div>
                <div>
-                    <label for="iscomplete">Is complete?:</label> <select id="complete">
+                    <label for="complete">Is complete?:</label> <select id="complete">
                          <option value="true">True</option>
                          <option value="false">False</option>
                     </select>

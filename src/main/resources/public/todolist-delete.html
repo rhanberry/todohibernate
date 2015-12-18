@@ -17,9 +17,13 @@
                       for (var i = 0; i < todolists.length; i++) {
                              var todolist = todolists[i];
                              var row = '<option value="' + todolist.todoId + '">'
-                                     + todolist.todoitem
+                                     + todolist.todoItem
                                      + ', '
-                                     + todolist.tododesc
+                                     + todolist.todoDesc
+                                     + ', '
+                                     + todolist.dueDate
+                                     + ', '
+                                     + todolist.todoUser
                                      + '</option>';
                              $("#todolists").append(row);
                          }
