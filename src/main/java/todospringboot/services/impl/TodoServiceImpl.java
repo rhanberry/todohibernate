@@ -24,8 +24,10 @@ public class TodoServiceImpl implements TodoService {
 	
 	
 	@Override
-	public List<TodoList> getTodolists(Boolean complete) {
-		List<TodoList> todolists = todoDao.getAllTodoList();
+	public List<TodoList> getTodolists() {
+		System.out.println("SERVICEIMPLGET");
+		//List<TodoList> todolists = 
+		return todoDao.getAllTodoList();
 //			if(complete != null){
 //				
 //				//return (List<TodoList>) todoDao.getAllTodoList().stream().filter(t-> t.isComplete() == complete);
@@ -40,7 +42,7 @@ public class TodoServiceImpl implements TodoService {
 //				return activeTodolists;
 //			}
 			
-		return todolists;
+		//return todolists;
 	}
 	
 	@Override
@@ -51,6 +53,7 @@ public class TodoServiceImpl implements TodoService {
 	
 	@Override
 	public void update(TodoList todolist){
+		System.out.println("SERVICEIMPL"+ todolist.getTodoDesc());
 		todoDao.update(todolist);
 	}
 	
@@ -64,6 +67,7 @@ public class TodoServiceImpl implements TodoService {
 	
 	@Override
 	public void delete(Integer todoId){
+		System.out.println("SERVICEIMPL"+ todoId);
 		todoDao.delete(todoId);
 	}
 

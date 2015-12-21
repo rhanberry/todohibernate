@@ -34,8 +34,8 @@ public class TodoWebService {
 		
 		
 	@RequestMapping(value="/todolists", method = RequestMethod.GET)
-	public List<TodoList> getTodolists(Boolean complete){
-		return todoService.getTodolists(complete);
+	public List<TodoList> getTodolists(){
+		return todoService.getTodolists();
 	}	
 	
 	

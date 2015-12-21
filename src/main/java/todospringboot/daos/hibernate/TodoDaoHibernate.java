@@ -47,7 +47,7 @@ public class TodoDaoHibernate implements TodoDao {
 	@Override
 	public TodoList getByTodoId(Integer todoId) {
 		return em
-				.createQuery("SELECT e FROM todolist e WHERE e.todoId = :id", TodoList.class)
+				.createQuery("SELECT e FROM TodoList e WHERE e.todoId = :id", TodoList.class)
 				.setParameter("id", todoId)
 				.getSingleResult();
 	}

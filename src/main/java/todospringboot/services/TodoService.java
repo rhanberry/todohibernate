@@ -13,7 +13,7 @@ public interface TodoService {
 	
 	void delete(Integer todoId);
 
-	List<TodoList> getTodolists(Boolean complete);
+	List<TodoList> getTodolists();
 	
 	TodoList getByTodoId(Integer todoId) throws InvalidInputException;
 
